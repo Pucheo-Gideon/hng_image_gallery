@@ -69,6 +69,7 @@ export default function ImageGallery(){
 
     const dragEnter = (e, position) =>{
         dragOverItem.current = position
+        e.preventDefault()
         console.log(e.target.innerHTML)
     }
 
