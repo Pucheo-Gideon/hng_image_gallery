@@ -113,7 +113,7 @@ export default function Auth (){
             type="email"
             name="email"
             value={form.email}
-            placeholder="user@example.com ..."
+            placeholder="you@gmail.com ..."
             onChange={handleOnChange}
             id="username"
             className={styles.email}

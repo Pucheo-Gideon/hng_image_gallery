@@ -91,25 +91,25 @@ export default function ImageGallery(){
         )
     }).map((image, index)=> {
        return (
-      
-           <div
-             key={index}
-             className={styled.photo}
-             draggable
-             onDragStart={(e) => dragStart(e, index)}
-             onDragEnter={(e) => dragEnter(e, index)}
-             onDragOver={(e)=> e.preventDefault()}
-             onDrop={drop}
-           >
-             <Image
-               src={image.img}
-               alt={"img" + index}
-               width={229}
-               height={200}
-               priority={true}
-             />
-             <p>{image.tag}</p>
-           </div>
+         <div
+           key={index}
+           className={styled.photo}
+           draggable
+           onDragStart={(e) => dragStart(e, index)}
+           onDragEnter={(e) => dragEnter(e, index)}
+           onDragOver={(e) => e.preventDefault()}
+           onDrop={drop}
+           onTouchStart={(e) => dragStart(e, index)} // Touch event for mobile
+         >
+           <Image
+             src={image.img}
+             alt={"img" + index}
+             width={229}
+             height={200}
+             priority={true}
+           />
+           <p>{image.tag}</p>
+         </div>
        );
     })
 
