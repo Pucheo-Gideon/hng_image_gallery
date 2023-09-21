@@ -30,7 +30,7 @@ export default function ImageGallery(){
     console.log(search)
 
     const handleOnSearch = (e)=> {
-        setSearch(e.target.value)
+        setSearch(e.target.value.toLowerCase())
     }
 
     // function searchFilter(result){
@@ -64,6 +64,7 @@ export default function ImageGallery(){
       const dragStart = (e, position) => {
         dragItem.current = position;
         setDraggingMessage(true);
+        e.dataTransfer.setData("text/plain", "");
       };
 
     const dragEnter = (e, position) =>{
@@ -72,10 +73,11 @@ export default function ImageGallery(){
     }
 
     const drop = (e) => {
-        const copyImages = [...imageLists]
-        const dragImageContent = copyImages[dragItem.current]
+        e.preventDefault();
+        const copyImages = [...imageLists];
+        const dragImageContent = copyImages[dragItem.current];
         copyImages.splice(dragItem.current, 1);
-        copyImages.splice(dragOverItem.current, 0, dragImageContent)
+        copyImages.splice(dragOverItem.current, 0, dragImageContent);
         dragItem.current = null;
         dragOverItem.current = null;
         setImageList(copyImages)
@@ -83,8 +85,9 @@ export default function ImageGallery(){
     }   
 
     const loopImages = imageLists && imageLists
-    .filter(item => {
-        return search.toLowerCase() === "" ? item:  item.tag.toLowerCase().includes(search)
+    .filter((item) => {
+        return (search === "" || item.tag.toLowerCase().includes(search)
+        )
     }).map((image, index)=> {
        return (
       
@@ -94,7 +97,8 @@ export default function ImageGallery(){
              draggable
              onDragStart={(e) => dragStart(e, index)}
              onDragEnter={(e) => dragEnter(e, index)}
-             onDragEnd={drop}
+             onDragOver={(e)=> e.preventDefault()}
+             onDrop={drop}
            >
              <Image
                src={image.img}
