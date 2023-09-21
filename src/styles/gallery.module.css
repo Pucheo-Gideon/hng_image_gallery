@@ -54,7 +54,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     margin: 100px 50px 10px 50px;
-    border: #ccc solid red;
+    /* border: #ccc solid red; */
     /* width: 80vw; */
 }
 
