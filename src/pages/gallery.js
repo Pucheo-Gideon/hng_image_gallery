@@ -99,7 +99,6 @@ export default function ImageGallery(){
            onDragEnter={(e) => dragEnter(e, index)}
            onDragOver={(e) => e.preventDefault()}
            onDrop={drop}
-           onTouchStart={(e) => dragStart(e, index)} // Touch event for mobile
          >
            <Image
              src={image.img}
