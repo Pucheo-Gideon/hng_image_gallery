@@ -124,17 +124,16 @@ export default function ImageGallery(){
               onChange={handleOnSearch}
             />
             <button className={styled.btn} onClick={Logout}>
-              Sign Out
+              Log Out
             </button>
           </nav>
          
           {draggingMessage && (
-            <div className={styled.drag_message}>Dragging image...</div>
+            <div className={styled.drag_message}>Drag and Drop successful</div>
           )}
           <section className={styled.image_container}>
             <Suspense fallback={<Loader />}>{loopImages}</Suspense>
           </section>
-          n
         </React.Fragment>
       </PrivateRoute>
     );
