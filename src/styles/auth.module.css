@@ -4,6 +4,7 @@
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
   min-height: 90vh; /* Ensures the container takes up the full viewport height */
+    
 }
 
 
@@ -11,8 +12,9 @@
    
     max-width: 400px;
     padding: 25px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;    
 }
+
 .label_block{
     display: block;
     /* margin: 5px 0; */
@@ -72,3 +74,9 @@
     
 }
 
+@media (max-width:375px) {
+
+    .loginForm{
+        margin: 0 30px 0 30px;
+    }
+}
